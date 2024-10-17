@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Classifier</title>
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iris Classifier</h1>
+    <div>
+        <label for="sepalLength">Sepal Length:</label>
+        <input type="number" id="sepalLength" step="0.1" required>
+    </div>
+    <div>
+        <label for="sepalWidth">Sepal Width:</label>
+        <input type="number" id="sepalWidth" step="0.1" required>
+    </div>
+    <div>
+        <label for="petalLength">Petal Length:</label>
+        <input type="number" id="petalLength" step="0.1" required>
+    </div>
+    <div>
+        <label for="petalWidth">Petal Width:</label>
+        <input type="number" id="petalWidth" step="0.1" required>
+    </div>
+    <button onclick="predict()">Predict</button>
+    <div id="result"></div>
+
+    <script>
+        let session;
+
+        async function loadModel() {
+            try {
+                session = await ort.InferenceSession.create('./modelo_nb.onnx');
+            } catch (e) {
+                console.error('Failed to load model:', e);
+            }
+        }
+
+        loadModel();
+
+        async function predict() {
+            const sepalLength = parseFloat(document.getElementById('sepalLength').value);
+            const sepalWidth = parseFloat(document.getElementById('sepalWidth').value);
+            const petalLength = parseFloat(document.getElementById('petalLength').value);
+            const petalWidth = parseFloat(document.getElementById('petalWidth').value);
+
+            const input = new ort.Tensor('float32', [sepalLength, sepalWidth, petalLength, petalWidth], [1, 4]);
+            const feeds = { [session.inputNames[0]]: input };
+
+            try {
+                const outputData = await session.run(feeds);
+                const outputTensor = outputData[session.outputNames[0]];
+                const predictions = outputTensor.data;
+                const maxIndex = predictions.indexOf(Math.max(...predictions));
+                const classes = ['Setosa', 'Versicolor', 'Virginica'];
+                const predictedClass = classes[maxIndex];
+                const probability = predictions[maxIndex];
+
+                document.getElementById('result').innerHTML = `
+                    Predicted Class: ${predictedClass}<br>
+                    Probability: ${(probability * 100).toFixed(2)}%
+                `;
+            } catch (e) {
+                console.error('Failed to run model:', e);
+                document.getElementById('result').innerHTML = 'An error occurred during prediction.';
+            }
+        }
+    </script>
+</body>
+</html>

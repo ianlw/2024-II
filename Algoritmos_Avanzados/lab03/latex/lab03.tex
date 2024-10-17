@@ -1,0 +1,124 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{afterpage}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstdefinestyle{mystyle}{
+    language=Python,
+    basicstyle=\small\ttfamily,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{green},
+    breaklines=true,
+    showstringspaces=false,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    frame=tb,
+    framexleftmargin=16pt,
+    framexrightmargin=0pt,
+    xleftmargin=16pt,
+    belowskip=10pt,
+    aboveskip=10pt
+}
+
+% Configuración de los márgenes
+\geometry{
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm,
+}
+
+
+\begin{document}
+\newgeometry{left=3cm,right=3cm,top=2cm,bottom=2cm}
+\begin{titlepage}
+
+%--------------- Nuevo comendo de linea ----------------->
+\newcommand{\linea}{\rule{\linewidth}{0.7mm}} 
+\center
+%--------------- Universidad, facultad y carrera ----------------->
+\textbf{\Large UNIVERSIDAD NACIONAL DE SAN ANTONIO ABAD DEL CUSCO}\\[0.2cm]
+\textbf{\Large FACULTAD DE INGENIERÍA ELÉCTRICA, ELECTRÓNICA,INFORMÁTICA Y MECÁNICA}\\[0.2cm]
+\textbf{\Large INGENIERÍA INFORMÁTICA Y DE SISTEMAS\\[0.6cm]}
+
+%--------------- Escudos png ----------------->
+\includegraphics[width=8cm]{escudo-unsaac.png}
+\vfill
+
+%--------------- Tema ----------------->
+\linea
+\\[0.3cm]
+% \vfill
+\textbf{\LARGE Laboratorio 3 - Rabin-Karp-Matcher}\\[0.2cm]
+\linea \\
+\vfill
+
+%--------------- Integrantes ----------------->
+\textbf{\Large Integrantes:}\\[0.2cm]
+%Integrantes del grupo
+    {\large Huacho Cruz David Ali }\\
+    \textit{211855}\\[0.1cm]
+
+    {\large Huisa Nina Yimy Yohel }\\
+    \textit{211857}\\[0.1cm]
+
+    {\large Gutierrez Alfaro Roland Einar}\\
+    \textit{210929}\\[0.1cm]
+
+    {\large Quispe Ventura Ian Logan Will}\\
+    \textit{211359}\\[0.1cm]
+
+    {\large Rodriguez Pauccara Cristian Diego }\\
+    \textit{210942}\\[0.1cm]
+    % \vfill
+
+%--------------- Profesor y curso ----------------->
+\vspace{0.1cm}
+    \textit{\Large Docente:}\\
+    \textbf{\large Lauro Enciso Rodas}\\
+\vspace{0.5cm}
+    \textit{\Large Curso:}\\
+    \textbf{\large Algoritmos Avanzados}\\
+    \vfill
+
+\vspace{0.5cm}
+\textbf{\Large Cusco - Perú }\\
+    \textbf{\large 2024}\\
+    \newpage
+    \end{titlepage}
+
+\restoregeometry
+\newpage
+\section{Guía de usuario}
+Ejecutar el archivo con extención .exe en windows, no es necesario instalar ninguna dependencia.
+
+\subsection{Uso básico}
+Ejecutar el programa haciendo doble click en el archivo 'Rabin-Karp-Matcher.exe' o también desde la consola de Windows (cmd), posicionandonos en la carpeta donde se encuentra el programa, con ayuda del comando cd (change directory), para ejecutar el programa simplementes escribiremos ./Rabin-Karp-Matcher.exe.
+
+\subsection{Características principales}
+\begin{itemize}
+    \item La aplicación implementa el algoritmo de Rabin-Karp-Matcher que permite encontrar patrones dentro de cadenas. 
+    \item La aplicación està desarrollada en Visual Studio usando c++ como lenguaje de programaciòn. 
+\end{itemize}
+
+\subsection{Ejemplo de uso}
+\begin{enumerate}
+    \item Completa los campos propocionados en la interfáz gráfica, que son:
+    \begin{itemize}
+        \item \textbf{T:} El string donde se buscarà el patròn .
+        \item \textbf{P:} El patròn a buscar.
+        \item \textbf{d:} El nùmero base del sistema (puede ser el tamaño del alfabeto, 256 para ASCII o 10 para numeros en esta base).
+        \item \textbf{q:} Un nùmero primo para el mòdulo.
+    \end{itemize}
+    \item Haga clic en "Calcular" para ejecutar el algortimo de Rabin-Karp-Matcher.
+\end{enumerate}
+ Inmediatamente se mostrarà el resultado indicando la posiciòn donde se encontrò el patròn. 
+\end{document}
+
+
