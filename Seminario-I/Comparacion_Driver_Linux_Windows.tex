@@ -1,0 +1,106 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+% \usepackage[backend=biber,style=apa]{biblatex}
+% \addbibresource{references.bib}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Comparación de eficiencia de drivers en Windows y Arch Linux}
+ 
+\author{\IEEEauthorblockN{ Ian Logan Will Quispe Ventura}
+\IEEEauthorblockA{\textit{Ingeniería Informática y de Sistemas} \\
+\textit{Universidad Nacional de San Antonio Abad del Cusco}\\
+Cusco, Perú\\
+211359@unsaac.edu.pe}}
+
+\maketitle
+
+\begin{abstract}
+Este documento muestra el impacto de el desarrollo de drivers para sistemas Linux en el desempeño de los equipos de un usuario final, esto se evidenciará en el uso diario de estos equipos,en temas de eficiencia en tareas cotidianas el procesamiento de imágenes por las tarjetas gráficas el desempeño de los procesadores en cálculos computacionales, 
+\end{abstract}
+
+\begin{IEEEkeywords}
+Linux, driver, system operative, efficiency, comparative
+\end{IEEEkeywords}
+
+\section{Introduction}
+Los sistemas basados en el kernel de Linux siempre sufrieron de una desventaja muy grande frente a otros sistemas operativos, el no tener una suficiente cantidad de drivers para el uso de dispositivos comerciales, esto perjudica su popularidad en el mercado final limitando el sistema solo a usuarios "avanzados " en el uso de computadoras, esto es algo incongruente con las necesidades de diferentes personas y entidades, pues sería lógico que a ninguna persona en el proceso de estudio se le pida pagar por la licencia de un sistema operativo como Windows, y en entidades públicas, en especial las pequeñas utilizan licencias vencidas o directamente ni siquiera las utilizan teniendo sus sistemas Windows desactualizados y desprotegidos, lo que conlleva una grave irresponsabilidad en el manejo de los servicios destinados a las personas que dependen de estos servicios.
+\section{Problema}
+\subsection{Descripción del Problema}
+Los sistemas basados en el kernel de Linux están por todo el mundo y en muchos dispositivos, aunque no nos demos cuenta, normalmente el usuario final no usa o no tiene un contacto directo con un sistema Linux, sin embargo las actividades diarias e indispensables tienen como base o como soporte a un sistema Linux, podemos ver esto en los servidores, que contienen la información y servicios que los usuarios consumen, la mayoría de estos funcionan bajo sistemas Linux.
+
+Los sistemas Linux también están disponibles para un usuario cotidiano que no necesariamente este relacionado al mundo de la programación o informática. Estos sistemas existen en gran variedad, pues cada sistema tiene un enfoque y objetivos diferentes para que los usuarios puedan elegir el que más le parezca en base a sus necesidades. Pero estos sistemas operativos tienen una gran desventaja que impide su uso extendido por la gran mayoría de usuarios, dejando de lado el proceso de instalación y adaptación a un sistema nuevo, la compatibilidad entre sistema operativo Linux y cualquier componente de una computadora, no siempre es la mejor, especialmente en equipos nuevos. 
+\subsection{Identificación del problema}
+Este problema, principalmente, parte de la escasez de driver privativos o que son desarrollados por las empresas que crean y comercializan los dispositivos. Las empresas normalmente no están interesadas en desarrollar drivers o tecnología para Linux, pues en realidad la cantidad de usuarios de estos sistemas y el trabajo y el tiempo que se necesita para el desarrollo de estas no son atractivos para las empresas.
+\subsection{*Hipotesis*}
+¿El desarrollar Drivers para sistemas basados en el kernel de Linux puede tener mejor eficiencia que los destinados a Windows? 
+\subsection{Formulación del problema}
+¿En qué sistema operativo, Windows o Arch Linux (distribución basada en el kernel de Linux), se puede aprovechar de manera más eficiente los recursos de hardware y software de la tarjeta gráfica AMD ATI Radeon HD 5450, considerando el desempeño de sus drivers privativos en cada plataforma?
+
+\subsection{Problemas específicos}
+\begin{itemize}
+    \item ¿Cómo se crean los drivers para ambos sitemas?
+    \item ¿Qué dificultades se tiene en la creación de drivers en Linux?
+    \item ¿Cual sistema tendrá un rendimiendo general superior?
+    \item ¿Cómo determinamos si un sistema logra mejores resultados  respecto a un dispositivo y driver específico?
+\end{itemize}
+
+\section{Objetivos}
+\subsection{Objetivo General}
+%Mostrar la importancia del desarrollo de drivers para sistemas basados en el kernel de Linux en dispositivos del usuario final para poder obtener un mejor desempeño  debido al acceso completo al kernel de linux.
+
+Determinar en que sistema se puede aprovechar de mejor manera los recursos de hardware y software, midiendo la eficiencia  del desempeño de drivers en un sistema Windows comparándolo con un sistema Arch Linux.
+Para este estudio usaremos la tarjeta gráfica AMD ATI Radeon HD 5450 que cuenta con drivers privativos para Windows  pero para Arch Linux no, por lo que usaremos los drivers comunitrarios.
+\subsection{Objetivos Específicos}
+\begin{itemize}
+    %\item Evidenciar el desinteres de las empresas desarrolladoras en implementar driver para sistemas linux
+    %\item Evidenciar la excases de drivers linux para el usuario final
+    \item Mostrar los procesos para la creación de drivers en ambos sistemas
+    \item Mostrar las dificultades del desarrollo de drivers para sistemas Linux
+    \item Evaluar el rendimiento general del sistema Windows comparadolo con el de Arch Linux
+    \item Evaluar el desempeño del dispositivo en cuestion realizando una tarea especìfica tanto en Windows como en Arch Linux
+    
+   % \item Estudiar el proceso de creación de drivers comunitarios
+   % \item Mostrar el impacto en el desempeño de los drivers comunitarios el uso diario de los sitemas linux
+\end{itemize}
+
+\section{Justificación}
+Para el usuario general, los procesos que realizan los drivers no son relevantes, solo importa que estos funciones de manera correcta, pero para que se logre esto, existe una aplicación de ingeniería y procesamientos que podemos llegar a entender, analizando como es que se crea un driver y como comunica sus procesos, del sistema operativo a un determinado dispositivo.\\
+
+Comprendiendo el proceso de creación de los drivers podremos entender el por qué de la dificultad de la creación de drivers para sistemas Linux y excases de estos en el mercado.
+
+Ademàs es importante primero comprender las diferencias de desempeño, eficiencia y hasta el consumo de recursos en ambos sistemas operativos para tener un contexto de donde pondremos en práctica la evaluación del driver para nuestra tarjeta gráfica. Finalmente esta evaluación nos permitirá saber en que sistema podemos obtener mejores resultados o una mejor eficiencia de el desempeño del driver. 
+
+Todo esto nos llevará a encontrar el sistema donde se pueda obtener mejor rendimiento para la tarjeta gráfica, además sabremos si un driver comunitario puede llegar a tener una eficiencia similar a uno privativo y de esta manera podremos aprobechar mucho más los recursos de hardware disponibles.
+
+\section{Antecedentes}
+\subsection{An{\'a}lisis comparativo del rendimiento de servicios de red en plataformas Windows y Linux: Comparative analysis of network services performance on Windows and Linux platforms}
+\cite{ortiz2024analisis} En este estudio se presenta un análisis comparativo del rendimiento de servicios de red en plataformas Windows y Linux. La investigación se llevó a cabo utilizando pruebas de carga en servidores web y se compararon los resultados en términos de tiempo de respuesta, tasa de transferencia y uso de CPU. Los resultados indican que Linux supera a Windows en términos de rendimiento y eficiencia en la mayoría de las pruebas realizadas.
+
+\subsection{Windows and linux random number generation process: A comparative analysis}
+\cite{alzhrani2015windows} En este estudio se concluye que dado que Linux es de código abierto y su código RNG es accesible, es más fácil de depurar y demostrar su solidez de seguridad. Contrarrestar la ingeniería de Windows RNG para probar su seguridad sigue siendo un problema abierto que también debería considerarse en futuras investigaciones.
+
+\subsection{Comparative Analysis of Power Consumption of the Linux and its Distribution Operating Systems vs Windows and Mac Operating Systems. }
+\cite{najmuddin2021comparative} Se concluye que la administración de energía de Linux requiere controladores bien escritos, de los cuales Linux carece porque los fabricantes de hardware no están dispuestos a dar detalles sobre su hardware a personas que escriben controladores. Por lo que se consume más duración de la batería al no tener el driver edecuado para optimizarlo. Existen algunas versiones del kernel de Linux en el que el módulo de administración de energía no está optimizado adecuadamente. por lo que elegir el kernel optimizado y de mejor rendimiento puede resolver el problema.
+
+\subsection{A comparison of the Linux and Windows device driver architectures}
+\cite{tsegaye2004comparison} En este artículo se analizan las arquitecturas de controladores de dispositivos utilizadas actualmente por dos de los sistemas operativos más populares.
+Se examinan los sistemas Linux y Windows de Microsoft. Componentes del controlador necesarios al implementar
+Se presentan y comparan los controladores de dispositivo para cada sistema operativo. El proceso de implementación de un controlador, por
+También se presenta cada sistema operativo que realiza E/S a un búfer del kernel. El artículo concluye examinando
+los entornos de desarrollo de controladores de dispositivos y las instalaciones proporcionadas a los desarrolladores por cada sistema operativo.
+\printbibliography
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
+
